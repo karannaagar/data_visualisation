@@ -2,17 +2,23 @@ import matplotlib.pyplot as plt
 
 from random_walk import Randomwalk
 
-# make random walk
-rw = Randomwalk()
-rw.fill_walk()
+while True:
+    # make random walk
+    rw = Randomwalk()
+    rw.fill_walk()
 
 
-# plot the points in the walk
-plt.style.use('classic')
+    # plot the points in the walk
+    plt.style.use('classic')
 
-fig, ax = plt.subplots()
+    fig, ax = plt.subplots()
 
-ax.scatter(rw.x_values, rw.y_values)
+    point_numbers = range(rw.num_points)
+    ax.scatter(rw.x_values, rw.y_values, c=point_numbers, cmap=plt.cm.Blues, edgecolors='none', s=15)
 
-plt.show()
+    plt.show()
+
+    user_input = input("do you want to continue? press y/n : ")
+    if user_input == 'n':
+        break
 
